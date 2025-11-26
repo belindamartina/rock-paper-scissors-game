@@ -1,0 +1,128 @@
+body {
+  
+    background : rgb(197, 192, 192);
+}
+.container {
+    width : 800px;
+    height : 600px;
+   margin : auto;
+   background : lightblue;
+   border : 2px solid blue;
+}
+
+.player {
+    margin : auto;
+}
+
+.pict {
+    height : 350px;
+    margin : 0 auto -30px;
+    border : 2px solid blue;
+}
+
+h1 {
+    text-align: center;
+}
+
+.quest{
+    width : 100px;
+    margin-left : -30px;
+    margin-right : 150px;
+    float : left;   
+    position : fixed;
+}
+
+.VS {
+    width : 100px;
+    right: 760px;
+    position : fixed;
+
+    
+}
+
+.quest2 {
+    width : 100px;
+    margin-left : 500px;
+    position: fixed;
+   
+}
+
+
+.clearfix {
+  clear: both;
+}
+
+.you {
+    width: 100px;
+    height: 20px;
+    text-align: center;
+    color : black;
+    border : 1px solid black;
+    background-color: red;
+    display: inline-block;
+    margin-right : 420px;
+    margin-left : 80px;
+}
+.comp {
+    width: 100px;
+    height: 20px;
+    text-align: center;
+    color : black;
+    border : 1px solid black;
+    background-color: red;
+    display: inline-block;
+}
+
+.options {
+    width: 340px;
+    margin : auto;
+}
+
+.rock {
+    width : 100px;
+    height: 20px;
+    color : white;
+    background-color: black;
+    border : 2px solid blue;
+    padding : 1px;
+    text-align: center;
+    display : inline-block;
+}
+.rock:hover{cursor: pointer;}
+.rock:active{background: red;}
+.paper {
+    width : 100px;
+    height: 20px;
+    color : white;
+    background-color: black;
+    border : 2px solid blue;
+    text-align: center;
+    display : inline-block;
+}
+.paper:hover{cursor:pointer;}
+.paper:active{background: red;}
+.scissor {
+    width : 100px;
+    height: 20px;
+    color : white;
+    background-color: black;
+    border : 2px solid blue;
+    text-align: center;
+    display : inline-block;
+}
+.scissor:hover{cursor:pointer;}
+.scissor:active{background: red;}
+h2 {
+    text-align: center;
+
+}
+.res {
+    margin : -40px auto;
+    width: 150px;
+    height: 50px;
+    border : 2px solid blue;
+    background: white;
+    color : black;
+    text-align: center;
+    font-size: 28px;
+}
