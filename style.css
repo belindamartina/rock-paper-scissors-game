@@ -1,0 +1,182 @@
+body {
+    margin : 0;
+    padding : 0;
+    background-image: url(img/moroccan-flower-dark.png);
+    overflow: hidden;
+}
+
+div.container {
+    display : flex;
+    max-width : 80%;
+    background-color: rgb(53, 53, 151);
+    flex-direction: column;
+    align-items: center;
+    align-content: space-between;
+    border : 10px solid black;
+    border-radius: 20px;
+    position: relative;
+    box-sizing: border-box;
+
+}
+
+.container .open {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(42, 18, 129);
+    transform: translateY(-30px);
+    border : 10px solid black;
+    border-radius: 20px;
+    color : white;
+    letter-spacing: 3px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-around;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+.button {
+    width: 300px;
+    height: 50px;
+    background-color: red;
+    margin: auto;
+    font-size: 2em;
+    font-style: oblique;
+    border: 5px solid black;
+    border-radius: 20px;
+}
+
+.button:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+    transition: all 0.5s;
+}
+
+
+.copy {
+    font-size: 1.5em;
+}
+
+
+.container div {
+    justify-content: center;
+    padding : 5px;
+
+}
+
+.container h1 {
+    text-align: center;
+    margin : auto;
+    border-radius: 25px;
+    font-family: "Ribeye Marrow", serif;
+    letter-spacing: 3px;
+    font-size: 2em;
+    color : rgb(245, 245, 245);
+    text-shadow: 10px;
+    background-color: rgb(116, 36, 36);
+    padding : 10px;
+    box-sizing: border-box;
+}
+
+.container.box {
+    display : flex;
+    max-width: 90%;
+    margin : 0 auto;
+    justify-content: center;
+}
+
+.box ul {
+    display : flex;
+    justify-content: center;
+    list-style: none;
+    padding: 3px;
+}
+
+.box ul li img {
+    align-items: center;
+    width: 100%;
+}
+
+.container.box2 {
+    width : 90%;
+    height : 50px;
+    margin : auto;
+    display : flex;   
+    
+}
+
+.box2 ul {
+    list-style: none;
+    display : flex;
+}
+
+.box2 ul li {
+    margin-left: -40px;
+    justify-content: space-evenly;
+}
+
+
+.box2 ul li span{
+    background-color: rgb(116, 36, 36);
+    width: 70%;
+    margin : 0 30px;
+    color: white;
+    font-size: 1em;
+    padding : 10px;
+    border : 2px solid red;
+    border-radius: 30px;
+    font-family: "Ribeye Marrow", serif;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    box-sizing: border-box;
+    justify-content: flex-start;
+}
+
+.box2 ul li span:hover {
+    transform: scale(1.15);
+    transition: all 0.5s;
+}
+
+.box2 ul li span:active {
+    background-color: rgb(255, 250, 250);
+}
+
+.result {
+    width : 180px;
+    height : 30px;
+    margin : auto;
+    background-color: bisque;
+    border : 5px solid red;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 2em;
+    line-height: 30px;
+    font-family: "BBH Sans Bogle", sans-serif;
+    word-spacing: 5px;
+}
+
+
+@media screen and (min-width : 768px) {
+    div.container {
+        display : flex;
+        margin : 20px auto;
+        padding : 20px;
+        width: 80%;
+    }
+
+}
+
+@media screen and (min-width : 576px) {
+    div.container {
+        display : flex;
+        margin : 10px auto;
+        padding : 10px;
+        width : 60%;
+    }
+
+}
