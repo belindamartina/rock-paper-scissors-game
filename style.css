@@ -71,6 +71,21 @@ div.container {
   margin: 8px 0;
 }
 
+.container .box div {
+    display : flex;
+    justify-content: space-around;
+    font-family: "Ribeye Marrow", serif;
+}
+
+.container .box span {
+    border : 2px solid red;
+    border-radius: 10px;
+    text-align: center;
+    background-color: brown;
+    padding : 3px;
+    color : white
+}
+
 .box ul {
   display: flex;
   justify-content: center;
@@ -169,6 +184,7 @@ div.container {
   div.container { width: 80%; padding: 20px; }
   .button { font-size: 2em; }
 }
+
 
 
 
