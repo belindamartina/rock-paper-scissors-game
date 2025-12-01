@@ -40,7 +40,6 @@ div.container {
   position: absolute;
   inset: 0; /* shorthand for top:0; right:0; bottom:0; left:0; */
   background-color: rgb(42, 18, 129);
-  transform: translateY(-30px);
   border : 10px solid black;
   border-radius: 20px;
   color: white;
@@ -170,3 +169,4 @@ div.container {
   div.container { width: 80%; padding: 20px; }
   .button { font-size: 2em; }
 }
+
