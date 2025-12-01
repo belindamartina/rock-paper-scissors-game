@@ -1,182 +1,172 @@
+/* ---------- Global fixes ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
-    margin : 0;
-    padding : 0;
-    background-image: url(img/moroccan-flower-dark.png);
-    overflow: hidden;
+  margin: 0;
+  padding: 0;
+  background-image: url(img/moroccan-flower-dark.png);
+  /* remove overflow:hidden — allow scrolling on small screens */
+  /* overflow: hidden; */
 }
 
+/* ensure images never blow out the layout */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ---------- Container ---------- */
 div.container {
-    display : flex;
-    max-width : 80%;
-    background-color: rgb(53, 53, 151);
-    flex-direction: column;
-    align-items: center;
-    align-content: space-between;
-    border : 10px solid black;
-    border-radius: 20px;
-    position: relative;
-    box-sizing: border-box;
-
+  display: flex;
+  width: 95%;           /* fluid on small screens */
+  max-width: 900px;     /* limit for larger screens */
+  background-color: rgb(53, 53, 151);
+  flex-direction: column;
+  align-items: center;
+  align-content: space-between;
+  border: 10px solid black;
+  border-radius: 20px;
+  position: relative;
+  margin: 12px auto;    /* center on page and give breathing room */
 }
 
+/* overlay "open" screen */
 .container .open {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(42, 18, 129);
-    transform: translateY(-30px);
-    border : 10px solid black;
-    border-radius: 20px;
-    color : white;
-    letter-spacing: 3px;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: space-around;
+  position: absolute;
+  inset: 0; /* shorthand for top:0; right:0; bottom:0; left:0; */
+  background-color: rgb(42, 18, 129);
+  transform: translateY(-30px);
+  border : 10px solid black;
+  border-radius: 20px;
+  color: white;
+  letter-spacing: 3px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-around;
 }
 
-h2 {
-    font-size: 2em;
-}
-
-.button {
-    width: 300px;
-    height: 50px;
-    background-color: red;
-    margin: auto;
-    font-size: 2em;
-    font-style: oblique;
-    border: 5px solid black;
-    border-radius: 20px;
-}
-
-.button:hover {
-    cursor: pointer;
-    transform: scale(1.2);
-    transition: all 0.5s;
-}
-
-
-.copy {
-    font-size: 1.5em;
-}
-
-
-.container div {
-    justify-content: center;
-    padding : 5px;
-
-}
-
+/* ---------- Header / Title ---------- */
 .container h1 {
-    text-align: center;
-    margin : auto;
-    border-radius: 25px;
-    font-family: "Ribeye Marrow", serif;
-    letter-spacing: 3px;
-    font-size: 2em;
-    color : rgb(245, 245, 245);
-    text-shadow: 10px;
-    background-color: rgb(116, 36, 36);
-    padding : 10px;
-    box-sizing: border-box;
+  text-align: center;
+  margin: auto;
+  border-radius: 25px;
+  font-family: "Ribeye Marrow", serif;
+  letter-spacing: 3px;
+  font-size: 2em;
+  color: rgb(245, 245, 245);
+  background-color: rgb(116, 36, 36);
+  padding: 10px;
 }
 
-.container.box {
-    display : flex;
-    max-width: 90%;
-    margin : 0 auto;
-    justify-content: center;
+/* ---------- Image box ---------- */
+.container .box {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin: 8px 0;
 }
 
 .box ul {
-    display : flex;
-    justify-content: center;
-    list-style: none;
-    padding: 3px;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 3px;
+  gap: 8px; /* better spacing than negative margins */
+  margin: 0;
 }
 
-.box ul li img {
-    align-items: center;
-    width: 100%;
+/* each image will scale down if needed */
+.box ul li {
+  flex: 0 1 30%; /* allow shrink on small screens, base ~30% each */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* ---------- Buttons / choices ---------- */
 .container.box2 {
-    width : 90%;
-    height : 50px;
-    margin : auto;
-    display : flex;   
-    
+  width: 100%;
+  margin: 8px 0;
+  display: flex;
+  justify-content: center;
 }
 
 .box2 ul {
-    list-style: none;
-    display : flex;
+  list-style: none;
+  display: flex;
+  gap: 12px;           /* use gap for neat spacing */
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;     /* allow buttons to wrap on very narrow screens */
+  justify-content: center;
 }
 
 .box2 ul li {
-    margin-left: -40px;
-    justify-content: space-evenly;
+  margin: 0;           /* remove negative margin-left */
 }
 
-
-.box2 ul li span{
-    background-color: rgb(116, 36, 36);
-    width: 70%;
-    margin : 0 30px;
-    color: white;
-    font-size: 1em;
-    padding : 10px;
-    border : 2px solid red;
-    border-radius: 30px;
-    font-family: "Ribeye Marrow", serif;
-    cursor: pointer;
-    display: inline-block;
-    text-align: center;
-    box-sizing: border-box;
-    justify-content: flex-start;
+.box2 ul li span {
+  background-color: rgb(116, 36, 36);
+  min-width: 80px;       /* a sensible minimum */
+  padding: 10px 18px;
+  color: white;
+  font-size: 1em;
+  border: 2px solid red;
+  border-radius: 30px;
+  font-family: "Ribeye Marrow", serif;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  box-sizing: border-box;
 }
 
-.box2 ul li span:hover {
-    transform: scale(1.15);
-    transition: all 0.5s;
-}
-
-.box2 ul li span:active {
-    background-color: rgb(255, 250, 250);
-}
-
+/* ---------- Result ---------- */
 .result {
-    width : 180px;
-    height : 30px;
-    margin : auto;
-    background-color: bisque;
-    border : 5px solid red;
-    border-radius: 20px;
-    text-align: center;
-    font-size: 2em;
-    line-height: 30px;
-    font-family: "BBH Sans Bogle", sans-serif;
-    word-spacing: 5px;
+  min-width: 120px;
+  max-width: 90%;
+  margin: 12px auto;
+  background-color: bisque;
+  border: 5px solid red;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 2em;
+  line-height: 30px;
+  font-family: "BBH Sans Bogle", sans-serif;
+  word-spacing: 5px;
+  padding: 6px;
 }
 
-
-@media screen and (min-width : 768px) {
-    div.container {
-        display : flex;
-        margin : 20px auto;
-        padding : 20px;
-        width: 80%;
-    }
-
+/* ---------- Button small screens ---------- */
+.button {
+  width: auto;
+  max-width: 90%;
+  height: 50px;
+  background-color: red;
+  margin: auto;
+  font-size: 1.5em;
+  font-style: oblique;
+  border: 5px solid black;
+  border-radius: 20px;
+  padding: 6px 12px;
+  box-sizing: border-box;
 }
 
-@media screen and (min-width : 576px) {
-    div.container {
-        display : flex;
-        margin : 10px auto;
-        padding : 10px;
-        width : 60%;
-    }
+/* ---------- Responsive breakpoints ---------- */
+/* larger than 576px */
+@media screen and (min-width: 576px) {
+  div.container { width: 60%; padding: 10px; }
+  .button { font-size: 1.75em; max-width: 300px; } /* allow bigger button on larger screens */
+  .box ul li { flex: 0 1 30%; }
+}
 
+/* larger than 768px */
+@media screen and (min-width: 768px) {
+  div.container { width: 80%; padding: 20px; }
+  .button { font-size: 2em; }
 }
