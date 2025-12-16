@@ -26,7 +26,7 @@ function getResult(comp,player){
     if (player==comp) return "TIE";
     if (player=="rock") return (comp=="paper")?"YOU LOSE":"YOU WIN";
     if (player=="paper") return (comp=="rock")?"YOU WIN":"YOU LOSE";
-    if (player=="scissors") return (comp=="rock")?"YOU LOSE":"YOU WIN";
+    if (player=="scissor") return (comp=="rock")?"YOU LOSE":"YOU WIN";
 }
 
 //get button and picture element
