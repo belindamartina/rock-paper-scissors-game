@@ -18,7 +18,7 @@ function getComp(){
     var random = Math.random();
     if (random<0.33) return "rock";
     if (random>=0.33 && random<=0.66) return "paper";
-    return "scissor";
+    return "scissors";
 };
 
 function getResult(comp,player){
