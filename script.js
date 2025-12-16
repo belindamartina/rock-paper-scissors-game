@@ -18,7 +18,7 @@ function getComp(){
     var random = Math.random();
     if (random<0.33) return "rock";
     if (random>=0.33 && random<=0.66) return "paper";
-    return "scissors";
+    return "scissor";
 };
 
 function getResult(comp,player){
@@ -32,7 +32,7 @@ function getResult(comp,player){
 //get button and picture element
 var rock = document.querySelector('.rock');
 var paper = document.querySelector('.paper');
-var scissor = document.querySelector('.scissors');
+var scissor = document.querySelector('.scissor');
 var imgPlayer = document.querySelector('.q1')
 var imgComp = document.querySelector('.q2')
 var result = document.querySelector('.result')
