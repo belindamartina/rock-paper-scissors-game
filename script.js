@@ -1,67 +1,77 @@
-const butt = document.querySelector('.button');
-butt.addEventListener('click', function(){
-    const open = document.querySelector('.open');
-    open.style.opacity = '0';
-    open.style.zIndex = '-1';
-    open.style.transition = 'all 0.5s';
-})
+let userScore = 0;
+let computerScore = 0;
 
+// DOM Elements
+const userScore_span = document.getElementById("user-score");
+const computerScore_span = document.getElementById("computer-score");
+const result_p = document.getElementById("message");
+const userDisplay_div = document.getElementById("user-choice-display");
+const compDisplay_div = document.getElementById("computer-choice-display");
 
+const rock_div = document.getElementById("rock");
+const paper_div = document.getElementById("paper");
+const scissors_div = document.getElementById("scissors");
 
-
-
-
-
-
-function getComp(){
-    //get comp choice
-    var random = Math.random();
-    if (random<0.33) return "rock";
-    if (random>=0.33 && random<=0.66) return "paper";
-    return "scissor";
-};
-
-function getResult(comp,player){
-    //get result
-    if (player==comp) return "TIE";
-    if (player=="rock") return (comp=="paper")?"YOU LOSE":"YOU WIN";
-    if (player=="paper") return (comp=="rock")?"YOU WIN":"YOU LOSE";
-    if (player=="scissor") return (comp=="rock")?"YOU LOSE":"YOU WIN";
+// Helper: Converts choice string to Font Awesome HTML
+function getIconHTML(choice) {
+    if (choice === "rock") return '<i class="fa-solid fa-hand-back-fist"></i>';
+    if (choice === "paper") return '<i class="fa-solid fa-hand"></i>';
+    if (choice === "scissors") return '<i class="fa-solid fa-hand-scissors"></i>';
 }
 
-//get button and picture element
-var rock = document.querySelector('.rock');
-var paper = document.querySelector('.paper');
-var scissor = document.querySelector('.scissor');
-var imgPlayer = document.querySelector('.q1')
-var imgComp = document.querySelector('.q2')
-var result = document.querySelector('.result')
+function getComputerChoice() {
+    const choices = ['rock', 'paper', 'scissors'];
+    const randomNumber = Math.floor(Math.random() * 3);
+    return choices[randomNumber];
+}
 
-//add event on elements
-rock.addEventListener('click', function(){
-    const compOpt = getComp();
-    const playerOpt = rock.className;
-    const fin = getResult(compOpt, playerOpt);
-    imgPlayer.setAttribute("src", "img/rock.png");
-    imgComp.setAttribute("src", "img/" + compOpt + ".png");
-    result.innerHTML = fin;
-});
+function win(userChoice, computerChoice) {
+    userScore++;
+    userScore_span.innerHTML = userScore;
+    result_p.innerHTML = "You win! 🔥";
+}
 
-paper.addEventListener('click', function(){
-    const compOpt = getComp();
-    const playerOpt = paper.className;
-    const fin = getResult(compOpt, playerOpt);
-    imgPlayer.setAttribute("src", "img/paper.png");
-    imgComp.setAttribute("src", "img/" + compOpt + ".png");
-    result.innerHTML = fin;
+function lose(userChoice, computerChoice) {
+    computerScore++;
+    computerScore_span.innerHTML = computerScore;
+    result_p.innerHTML = "You lost... 💀";
+}
 
-});
+function draw(userChoice, computerChoice) {
+    result_p.innerHTML = "It's a draw! 🤝";
+}
 
-scissor.addEventListener('click', function(){
-    const compOpt = getComp();
-    const playerOpt = scissor.className;
-    const fin = getResult(compOpt, playerOpt);
-    imgPlayer.setAttribute("src", "img/scissor.png");
-    imgComp.setAttribute("src", "img/" + compOpt + ".png");
-    result.innerHTML = fin;
-});
+function game(userChoice) {
+    const computerChoice = getComputerChoice();
+    
+    // 1. Update the visual icons in the Battle Area
+    userDisplay_div.innerHTML = getIconHTML(userChoice);
+    compDisplay_div.innerHTML = getIconHTML(computerChoice);
+
+    // 2. Logic Check
+    switch (userChoice + computerChoice) {
+        case "rockscissors":
+        case "paperrock":
+        case "scissorspaper":
+            win(userChoice, computerChoice);
+            break;
+        case "rockpaper":
+        case "paperscissors":
+        case "scissorsrock":
+            lose(userChoice, computerChoice);
+            break;
+        case "rockrock":
+        case "paperpaper":
+        case "scissorsscissors":
+            draw(userChoice, computerChoice);
+            break;
+    }
+}
+
+function main() {
+    rock_div.addEventListener('click', () => game("rock"));
+    paper_div.addEventListener('click', () => game("paper"));
+    scissors_div.addEventListener('click', () => game("scissors"));
+}
+
+main();
